@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f3;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .sure {
+      background: #e0e0e0;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="box">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button class="yes" onclick="yesClicked()">Yes (obviously)</button>
+  <button class="sure" id="sureBtn">Are you sure?</button>
+</div>
+
+<script>
+  const sureBtn = document.getElementById("sureBtn");
+  const box = document.getElementById("box");
+
+  const texts = [
+    "Shu hal kabse 🤨",
+    "3anjad 3am tfakkir?",
+    "Ma t3azzebne 🙄",
+    "Khayye focus شوي",
+    "ekhir marra walla",
+    "OK ktir HAL2AD.khalass."
+    "ya aamme bezaal wloooo."
+    "wle bassss😭."
+  ];
+
+  let i = 0;
+
+  sureBtn.addEventListener("mouseover", () => {
+    if (i < texts.length) {
+      sureBtn.innerText = texts[i];
+      i++;
+    }
+
+    const boxRect = box.getBoundingClientRect();
+    const x = Math.random() * (boxRect.width - sureBtn.offsetWidth);
+    const y = Math.random() * (boxRect.height - sureBtn.offsetHeight - 40) + 40;
+
+    sureBtn.style.left = x + "px";
+    sureBtn.style.top = y + "px";
+  });
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div class="box">
+        <h1>Bravo ya albe 😌💘</h1>
+        <p>
+          Sah. Hek badde yek.<br><br>
+          You are officially my Valentine.<br>
+          Decision approved by me🫠<br><br>
+          No refunds. Yalla bye.
+        </p>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
