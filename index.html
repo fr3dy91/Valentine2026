@@ -66,24 +66,25 @@
     "3anjad 3am tfakkir?",
     "Ma t3azzebne 🙄",
     "Khayye focus شوي",
-    "ekhir marra walla",
-    "OK ktir HAL2AD.khalass."
-    "ya aamme bezaal wloooo."
-    "wle bassss😭."
+    "Ekhir marra walla",
+    "OK ktir HAL2AD. Khalass.",
+    "Ya aamme bezaal wloooo.",
+    "Wle bassss 😭."
   ];
 
   let i = 0;
 
-  sureBtn.addEventListener("mouseover", () => {
-    if (i < texts.length) {
-      sureBtn.innerText = texts[i];
-      i++;
-    }
+  sureBtn.addEventListener("click", () => {
+    // Change text (loops)
+    sureBtn.innerText = texts[i % texts.length];
+    i++;
 
+    // Move button
     const boxRect = box.getBoundingClientRect();
     const x = Math.random() * (boxRect.width - sureBtn.offsetWidth);
     const y = Math.random() * (boxRect.height - sureBtn.offsetHeight - 40) + 40;
 
+    sureBtn.style.transition = "all 0.3s ease";
     sureBtn.style.left = x + "px";
     sureBtn.style.top = y + "px";
   });
@@ -95,7 +96,7 @@
         <p>
           Sah. Hek badde yek.<br><br>
           You are officially my Valentine.<br>
-          Decision approved by me🫠<br><br>
+          Decision approved by me 🫠<br><br>
           No refunds. Yalla bye.
         </p>
       </div>
