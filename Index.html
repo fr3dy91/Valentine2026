@@ -1,0 +1,51 @@
+<script>
+  const sureBtn = document.getElementById("sureBtn");
+  const box = document.getElementById("box");
+
+  const texts = [
+    "Are you sure?",
+    "Akid?",
+    "Nah you are joking…",
+    "3anjad?",
+    "Ma ba3rif 3anjad 🙄",
+    "Focus habibe",
+    "Last chance wallah",
+    "OK no. Try again.",
+    "ya aamme bez3al wlo"
+  ];
+
+  let i = 0;
+
+  sureBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Change text (loops forever)
+    sureBtn.innerText = texts[i % texts.length];
+    i++;
+
+    // Slower + smaller movement
+    const boxRect = box.getBoundingClientRect();
+
+    const x = Math.random() * (boxRect.width - sureBtn.offsetWidth - 20);
+    const y = Math.random() * (boxRect.height - sureBtn.offsetHeight - 60) + 40;
+
+    sureBtn.style.transition = "all 0.35s ease";
+    sureBtn.style.left = x + "px";
+    sureBtn.style.top = y + "px";
+  });
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div class="box">
+        <h1>Ahhh finally 😌💘</h1>
+        <p>
+          See? It wasn’t that hard wle.<br><br>
+          You are officially my Valentine.<br>
+          Approved. Signed. Sealed.<br>
+          I agree <br><br>
+          Ma fi back button.
+        </p>
+      </div>
+    `;
+  }
+</script>
